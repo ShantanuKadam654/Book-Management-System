@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Book</title>
+<link rel="stylesheet" type="text/css" href="/editBook.css">
+ <link rel="icon" type="image/png" href="/video/Screenshot_2024-11-06_153332-removebg-preview.png" />
+</head>
+<body>
+	<div class="container">
+		<h1>Edit Book</h1>
+		<form id="edit-book-form" method="post" enctype="multipart/form-data"
+			th:action="@{/edit}" th:object="${book}">
+			
+			<input type="hidden" name="bookid" th:value="${book.bookid}" /> 
+			
+			<label for="bookname">Book Name:</label> 
+			<input type="text" id="bookname" name="bookname" th:value="${book.bookname}" required /> 
+			
+			<label for="bookprice">Price:</label> 
+			<input type="number" id="bookprice" name="bookprice" step="0.01" th:value="${book.bookprice}" required />
+
+			<label for="publishyr">Publication Year:</label> 
+			<input type="number" id="publishyr" name="publishyr" th:value="${book.publishyr}" required /> 
+			
+			<label for="booktype">Book Type:</label> 
+			<input type="text" id="booktype" name="booktype" th:value="${book.booktype}" required /> 
+			
+			<label for="bookinfo">Book Information:</label>
+			<textarea id="bookinfo" name="bookinfo" required th:text="${book.bookinfo}"></textarea>
+
+			<label for="bookphoto">Update Book Photo:</label> 
+			<input type="file" id="bookphoto" name="bookphoto" />
+
+			<div class="header-row">
+				<button type="submit" class="save-button">Save Changes</button>
+				<button type="button" class="cancel-button"
+				onclick="window.location.href='/admin_dashboard'">Cancel</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

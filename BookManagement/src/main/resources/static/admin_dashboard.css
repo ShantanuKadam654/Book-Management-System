@@ -1,0 +1,198 @@
+/* General reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and background */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #000000;
+}
+
+/* Container for different sections */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box-shadow for subtle 3D effect */
+}
+
+h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Manage Books Header */
+.manage-books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.manage-books-header h3 {
+    margin: 0;
+}
+
+/* Add Book Button */
+.add-book-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-book-btn:hover {
+    background-color: #45a049;
+}
+
+.add-book-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    padding: 15px 20px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #808080;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table td {
+    background-color: #fff;
+    color: #555;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+table tr:hover td {
+    background-color: #eeeeee;
+}
+
+/* Action Links and Buttons */
+table a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.view-button, .edit-btn, .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.view-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+.view-button:hover {
+    background-color: #e0a800;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color:  #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Red button style for delete */
+table a.delete-btn {
+    color: white;
+    background-color: #ff8080;
+}
+
+table a.delete-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+table a.delete-btn:active {
+    transform: scale(0.98);
+}
+
+/* Making action buttons inline */
+table td a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Logout and Reports link */
+a[href="/logout"] {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    width: 10%;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: #ff8000;
+    color:white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 0.9em;
+    }
+
+    table th, table td {
+        padding: 12px;
+    }
+
+    table a {
+        padding: 8px 15px;
+    }
+}

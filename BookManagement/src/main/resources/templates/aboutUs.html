@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BookLedger</title>
+    <!-- Link to the aboutUs.css file -->
+    <link rel="stylesheet" href="/aboutUs.css">
+     <link rel="icon" type="image/png" href="/video/Screenshot_2024-11-06_153332-removebg-preview.png" />
+</head>
+<body>
+	<div class="navbar">
+    	<div class="logo-container">
+        	<img src="/video/BL.png" alt="BookLedger Logo" class="logo">
+    	</div>
+    	<ul>
+        	<li><a href="/home">HOME</a></li>
+        	<li><a href="/books">BOOK LIST</a></li>
+        	<li><a href="/books/aboutUs">ABOUT US</a></li>
+        	<li><a href="#" id="profileBtn">PROFILE</a></li>
+    	</ul>
+	</div>
+	
+	 <div id="profileModal" class="modal">
+    	<div class="modal-content">
+        	<span class="close" id="closeModal">&times;</span>
+        	<p><strong>Hello </strong> <span id="username" th:text="${username}">Username</span></p> 
+        	<button class="cart-button" onclick="cart()">Cart</button>
+        	<button class="logout-button" onclick="logout()">Logout</button>
+    	</div>
+	</div>
+    
+    <div class="about-container">
+        <div class="video-box">
+            <video autoplay muted loop>
+                <source src="/video/Untitled video - Made with Clipchamp (23).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+		<br><br>
+        <div class="text-box">
+            <h1>About Us</h1>
+            <p>
+                Our platform is designed to make managing your personal or organizational library easier and more efficient.
+            </p>
+            <p>
+                Whether you're a passionate reader, a student, or an organization, our system simplifies the way you store, browse, and manage your book collection.
+            </p>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="about-container">
+        <div class="text-box">
+            <h1>Mission Statement</h1>
+            <p>
+                Our mission is to empower users to take control of their reading journey by providing a user-friendly tool that simplifies library management.
+            </p>
+        </div>
+        
+        <div class="video-box">
+            <video autoplay muted loop>
+                <source src="/video/Mission.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+   <br><br><br>
+    <div class="about-container">
+        <div class="video-box">
+            <video autoplay muted loop>
+                <source src="/video/Untitled video - Made with Clipchamp (23).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+		<br><br>
+        <div class="text-box">
+            <h1>Features</h1>
+            <p>
+                Key Features With BookLedger, you can easily add, edit, and delete book records, track your reading progress, and explore your collection like never before.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Book Management System | Created by Shantanu Kadam</p>
+            <ul class="footer-links">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/books/aboutUs}">About</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        // Modal functionality
+        const profileBtn = document.getElementById("profileBtn");
+        const profileModal = document.getElementById("profileModal");
+        const closeModal = document.getElementById("closeModal");
+
+        // Open the modal
+        profileBtn.onclick = function() {
+            profileModal.style.display = "block";
+        };
+
+        // Close the modal
+        closeModal.onclick = function() {
+            profileModal.style.display = "none";
+        };
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == profileModal) {
+                profileModal.style.display = "none";
+            }
+        };
+
+        // Logout function
+        function logout() {
+            window.location.href = "/logout"; // Redirect to logout URL
+        }
+        
+        function cart() {
+        	window.location.href = "/cart";
+        }
+    </script>
+</body>
+</html>

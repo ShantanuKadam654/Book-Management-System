@@ -1,0 +1,290 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('video/pexels-cristiolino-29087771.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: white; 
+}
+
+.navbar {
+    position: relative;
+    background-color: #000;
+    color: white;
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1; 
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: left; 
+}
+
+.logo {
+    max-height: 60px; 
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin-left: 10;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    
+    margin-right: 60px;
+}
+
+.navbar ul li a {
+    color: rgb(192, 192, 192);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar ul li a:hover {
+	color: white;
+    
+}
+
+
+.content {
+    height: 50vh; 
+    padding-top: 80px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; /* Sits on top */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 10);
+    margin-top: 7%; 
+    margin-left: 70%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    max-width: 400px; 
+    text-align: center;
+    border-radius: 8px;
+    color:white;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart-button {
+    background-color: #ff8040; 
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%; 
+}
+
+.logout-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%; 
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    padding-right: 40px;
+}
+
+.header-row h2 {
+    margin: 10;
+    color: #fff;
+    padding: 10px;
+    padding-left: 10px;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book-card {
+    background: rgba(0, 0, 0, 0.8); 
+   
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.book-name {
+    font-size: 18px;
+    color: #f1f1f1;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.view-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+.view-button {
+    background-color: #808080;
+    color: white;
+}
+
+.view-button:hover {
+    background-color: #c0c0c0;
+}
+
+@media (max-width: 600px) {
+    .book-card {
+        width: 100%;
+    }
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 10);
+    margin-top: 7%; 
+    margin-left: 70%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    max-width: 400px; 
+    text-align: center;
+    border-radius: 8px;
+    color:white;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: black;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-links {
+    list-style-type: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+

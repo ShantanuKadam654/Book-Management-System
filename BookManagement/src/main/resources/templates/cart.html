@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Cart</title>
+<link rel="stylesheet" th:href="@{/cart.css}">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="navbar">
+		<div class="logo-container">
+			<img src="/video/BL.png" alt="BookLedger Logo" class="logo">
+		</div>
+		<ul>
+			<li><a th:href="@{/home}">HOME</a></li>
+			<li><a th:href="@{/books}">BOOK LIST</a></li>
+			<li><a th:href="@{/books/aboutUs}">ABOUT US</a></li>
+			<li><a href="#" id="profileBtn">PROFILE</a></li>
+		</ul>
+	</div>
+
+	<div id="profileModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="closeModal">&times;</span>
+			<p>
+				<strong>Hello </strong><span id="username" th:text="${username}">Username</span>
+			</p>
+			<button class="cart-button" onclick="cart()">Cart</button>
+			<button class="logout-button" onclick="logout()">Logout</button>
+		</div>
+	</div>
+
+	<h1>Your Cart</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Book Name</th>
+				<th>Price</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cartItem : ${cartItems}">
+				<td th:text="${cartItem.book.bookname}"></td>
+				<td th:text="${cartItem.book.bookprice}"></td>
+				<td>
+					<form th:action="@{/cart/delete}" method="post">
+						<input type="hidden" th:value="${cartItem.cartid}" name="cartid" />
+						<!-- Use cartid -->
+						<button type="submit">Remove</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="1"><strong>Total</strong></td>
+				<td><strong><span id="bookPrice" th:text="${total}"></span></strong></td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<!-- New Fashionable Container for Total and Buy Button -->
+	<div class="total-container">
+		<div class="total-price">
+			<strong>TOTAL:</strong> <span th:text="${total}"></span>
+		</div>
+		
+			<button onclick="paymentstart()" class="buy-button"><i class="fas fa-credit-card"></i>PAY</button>
+		
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script src="/js/script.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

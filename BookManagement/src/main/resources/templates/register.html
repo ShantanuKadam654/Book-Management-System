@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/register.css}">
+     <link rel="icon" type="image/png" href="/video/Screenshot_2024-11-06_153332-removebg-preview.png" />
+</head>
+<body>
+    <form action="/register" method="POST">
+    <h2>Register</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="reg">Register as:</label>
+    <div class="register">
+        <button type="submit" name="registerAs" value="user">User</button>
+        <button type="submit" name="registerAs" value="admin">Admin</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookLedger</title>
+    <link rel="stylesheet" href="/homestyle.css">
+    <link rel="icon" type="image/png" href="/video/Screenshot_2024-11-06_153332-removebg-preview.png" />
+</head>
+<body>
+    <div class="navbar">
+    	<div class="logo-container">
+        	<img src="/video/BL.png" alt="BookLedger Logo" class="logo">
+    	</div>
+    	<ul>
+        	<li><a href="/home">HOME</a></li>
+        	<li><a href="/books">BOOK LIST</a></li>
+        	<li><a href="/books/aboutUs">ABOUT US</a></li>
+        	<li><a href="#" id="profileBtn">PROFILE</a></li>
+    	</ul>
+	</div>
+
+    <div id="profileModal" class="modal">
+    	<div class="modal-content">
+        	<span class="close" id="closeModal">&times;</span>
+        	<p><strong>Hello </strong> <span id="username" th:text="${username}">Username</span></p> 
+        	<button class="cart-button" onclick="cart()">Cart</button>
+        	<button class="logout-button" onclick="logout()">Logout</button>
+    	</div>
+	</div>
+
+
+    <video autoplay muted loop id="background-video">
+        <source src="/video/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Book Management System | Created by Shantanu Kadam</p>
+            <ul class="footer-links">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/books/aboutUs}">About</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const profileBtn = document.getElementById("profileBtn");
+        const profileModal = document.getElementById("profileModal");
+        const closeModal = document.getElementById("closeModal");
+
+        // Open the modal
+        profileBtn.onclick = function() {
+            profileModal.style.display = "block";
+        };
+
+        // Close the modal
+        closeModal.onclick = function() {
+            profileModal.style.display = "none";
+        };
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == profileModal) {
+                profileModal.style.display = "none";
+            }
+        };
+
+        // Logout function
+        function logout() {
+            window.location.href = "/logout"; // Redirect to logout URL
+        }
+        
+        function cart() {
+        	window.location.href = "/cart";
+        }
+    </script>
+</body>
+</html>

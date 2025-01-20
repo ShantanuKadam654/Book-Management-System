@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/admin_dashboard.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <h2>Welcome to the Admin Dashboard</h2>
+
+    <div th:if="${message}" class="alert alert-success">
+        <p th:text="${message}"></p>
+    </div>
+    <div th:if="${error}" class="alert alert-danger">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div class="container">
+        <h3>User Management</h3>
+        <p>Total Users: <span th:text="${totalUsers}"></span></p>
+    </div>
+
+    <div class="container">
+        <div class="manage-books-header">
+            <h3>Manage Books</h3>
+            <button onclick="window.location.href='/add'" class="add-book-btn">Add New Book</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Information</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.bookid}"></td>
+                    <td th:text="${book.bookname}"></td>
+                    <td th:text="${book.bookinfo}"></td>
+                    <td th:text="${book.publishyr}"></td>
+                    <td th:text="${book.bookprice}"></td>
+                    <td> 
+                        <button th:onclick="'editBook(' + ${book.bookid} + ')'" class="edit-btn" title="Edit">
+						<i class="fas fa-pen"></i>
+						</button>
+                        <button th:onclick="'deleteBook(' + ${book.bookid} + ')'"
+						class="delete-button" title="Delete">
+						<i class="fas fa-trash-alt"></i>
+						</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+         <p>Total Books: <span th:text="${totalBooks}"></span></p>
+    </div>
+
+    <a href="/logout">Logout</a>
+    
+    <script>
+    
+    function editBook(id) {
+        window.location.href = '/editBook/' + id;
+    }
+
+    function deleteBook(id) {
+        if (confirm("Are you sure you want to delete this book?")) {
+            fetch('/delete/' + id, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                	window.location.reload();
+                }
+            });
+        }
+    }
+   
+    </script>
+</body>
+</html>

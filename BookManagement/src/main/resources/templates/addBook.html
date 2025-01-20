@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" type="text/css" href="/addBook.css">
+    <link rel="icon" type="image/png" href="/static/video/Screenshot_2024-11-06_153332-removebg-preview.png" />
+</head>
+<body>
+   
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>User Profile</h2>
+            <p><strong>Username:</strong> <span id="username" th:text="${username}">Username</span></p> <!-- Dynamically display username -->
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <form action="/add" method="post" enctype="multipart/form-data">
+        <h1>Add New Book</h1>
+
+        <label for="bookname">Book Name:</label>
+        <input type="text" id="bookname" name="bookname" required><br>
+
+        <br>
+        <label for="bookprice">Book Price:</label>
+        <input type="number" id="bookprice" name="bookprice" step="0.01" required><br>
+
+        <br>
+        <label for="publishyr">Publish Year:</label>
+        <input type="number" id="publishyr" name="publishyr" required><br>
+
+        <br>
+        <label for="bookinfo">Book Info:</label>
+        <textarea id="bookinfo" name="bookinfo" required></textarea><br>
+
+        <br>
+        <label for="booktype">Book Author:</label>
+        <input type="text" id="booktype" name="booktype" required><br>
+
+        <br>
+        <label for="bookphoto">Book Photo:</label>
+        <input type="file" id="bookphoto" name="bookphoto" accept="image/*" required><br>
+        <br>
+
+        <button type="submit">Add Book</button>
+    </form>
+   
+</body>
+</html>
